@@ -2,65 +2,6 @@
     "composer/package-versions-deprecated": {
         "version": "1.11.99.4"
     },
-    "doctrine/annotations": {
-        "version": "1.13",
-        "recipe": {
-            "repo": "github.com/symfony/recipes",
-            "branch": "master",
-            "version": "1.0",
-            "ref": "a2759dd6123694c8d901d0ec80006e044c2e6457"
-        },
-        "files": [
-            "config/routes/annotations.yaml"
-        ]
-    },
-    "doctrine/cache": {
-        "version": "2.1.1"
-    },
-    "doctrine/collections": {
-        "version": "1.6.8"
-    },
-    "doctrine/common": {
-        "version": "3.2.0"
-    },
-    "doctrine/dbal": {
-        "version": "3.2.0"
-    },
-    "doctrine/deprecations": {
-        "version": "v0.5.3"
-    },
-    "doctrine/doctrine-bundle": {
-        "version": "2.5",
-        "recipe": {
-            "repo": "github.com/symfony/recipes",
-            "branch": "master",
-            "version": "2.4",
-            "ref": "032f52ed50a27762b78ca6a2aaf432958c473553"
-        },
-        "files": [
-            "config/packages/doctrine.yaml",
-            "config/packages/prod/doctrine.yaml",
-            "config/packages/test/doctrine.yaml",
-            "src/Entity/.gitignore",
-            "src/Repository/.gitignore"
-        ]
-    },
-    "doctrine/doctrine-migrations-bundle": {
-        "version": "3.2",
-        "recipe": {
-            "repo": "github.com/symfony/recipes",
-            "branch": "master",
-            "version": "3.1",
-            "ref": "ee609429c9ee23e22d6fa5728211768f51ed2818"
-        },
-        "files": [
-            "config/packages/doctrine_migrations.yaml",
-            "migrations/.gitignore"
-        ]
-    },
-    "doctrine/event-manager": {
-        "version": "1.1.1"
-    },
     "doctrine/inflector": {
         "version": "2.0.4"
     },
@@ -69,18 +10,6 @@
     },
     "doctrine/lexer": {
         "version": "1.2.1"
-    },
-    "doctrine/migrations": {
-        "version": "3.3.2"
-    },
-    "doctrine/orm": {
-        "version": "2.10.3"
-    },
-    "doctrine/persistence": {
-        "version": "2.2.3"
-    },
-    "doctrine/sql-formatter": {
-        "version": "1.1.2"
     },
     "egulias/email-validator": {
         "version": "3.1.2"
@@ -216,18 +145,6 @@
     "sebastian/version": {
         "version": "3.0.2"
     },
-    "sensio/framework-extra-bundle": {
-        "version": "6.2",
-        "recipe": {
-            "repo": "github.com/symfony/recipes",
-            "branch": "master",
-            "version": "5.2",
-            "ref": "fb7e19da7f013d0d422fa9bce16f5c510e27609b"
-        },
-        "files": [
-            "config/packages/sensio_framework_extra.yaml"
-        ]
-    },
     "symfony/asset": {
         "version": "6.1.x-dev"
     },
@@ -276,9 +193,6 @@
     "symfony/deprecation-contracts": {
         "version": "v3.0.0"
     },
-    "symfony/doctrine-bridge": {
-        "version": "6.1.x-dev"
-    },
     "symfony/dom-crawler": {
         "version": "6.1.x-dev"
     },
@@ -315,9 +229,6 @@
             ".env"
         ]
     },
-    "symfony/form": {
-        "version": "6.1.x-dev"
-    },
     "symfony/framework-bundle": {
         "version": "6.1",
         "recipe": {
@@ -336,12 +247,6 @@
             "src/Controller/.gitignore",
             "src/Kernel.php"
         ]
-    },
-    "symfony/http-client": {
-        "version": "6.1.x-dev"
-    },
-    "symfony/http-client-contracts": {
-        "version": "v3.0.0"
     },
     "symfony/http-foundation": {
         "version": "6.1.x-dev"
@@ -394,21 +299,6 @@
             "config/packages/test/monolog.yaml"
         ]
     },
-    "symfony/notifier": {
-        "version": "6.1",
-        "recipe": {
-            "repo": "github.com/symfony/recipes",
-            "branch": "master",
-            "version": "5.0",
-            "ref": "c31585e252b32fe0e1f30b1f256af553f4a06eb9"
-        },
-        "files": [
-            "config/packages/notifier.yaml"
-        ]
-    },
-    "symfony/options-resolver": {
-        "version": "6.1.x-dev"
-    },
     "symfony/password-hasher": {
         "version": "6.1.x-dev"
     },
@@ -430,9 +320,6 @@
     "symfony/polyfill-intl-grapheme": {
         "version": "v1.23.1"
     },
-    "symfony/polyfill-intl-icu": {
-        "version": "v1.23.0"
-    },
     "symfony/polyfill-intl-idn": {
         "version": "v1.23.0"
     },
@@ -444,9 +331,6 @@
     },
     "symfony/polyfill-php81": {
         "version": "v1.23.0"
-    },
-    "symfony/process": {
-        "version": "6.1.x-dev"
     },
     "symfony/property-access": {
         "version": "6.1.x-dev"
