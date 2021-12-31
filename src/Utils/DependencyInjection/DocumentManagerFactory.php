@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App;
+namespace Utils\DependencyInjection;
 
 use Doctrine\ODM\MongoDB\Configuration;
 use Doctrine\ODM\MongoDB\DocumentManager;
@@ -14,9 +14,6 @@ class DocumentManagerFactory
 {
     public static function createDocumentManager(string $cacheDir): DocumentManager
     {
-        $mappingFinder = new DirectoryMappingFinder([__DIR__ . '/Mappings'], ['App\\Mappings']);
-        $fluentDriver = new FluentDriver($mappingFinder);
-
         $config = new Configuration();
         $config->setProxyDir("{$cacheDir}/doctrine/odm/mongodb/Proxies");
         $config->setProxyNamespace('MongoDBODMProxies');
@@ -24,6 +21,9 @@ class DocumentManagerFactory
         $config->setHydratorNamespace('Hydrators');
         $config->setPersistentCollectionDir("{$cacheDir}/doctrine/odm/mongodb/PersistentCollections");
         $config->setDefaultDB('questasy');
+
+        $mappingFinder = new DirectoryMappingFinder([__DIR__ . '/Game/Infrastructure/Mapping'], ['Game\\Infrastructure\\Mapping']);
+        $fluentDriver = new FluentDriver($mappingFinder);
         $config->setMetadataDriverImpl($fluentDriver);
 
         $client = new Client('mongodb://127.0.0.1', [
