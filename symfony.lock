@@ -2,6 +2,30 @@
     "composer/package-versions-deprecated": {
         "version": "1.11.99.4"
     },
+    "doctrine/annotations": {
+        "version": "1.13",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "1.0",
+            "ref": "a2759dd6123694c8d901d0ec80006e044c2e6457"
+        },
+        "files": [
+            "config/routes/annotations.yaml"
+        ]
+    },
+    "doctrine/cache": {
+        "version": "2.1.1"
+    },
+    "doctrine/collections": {
+        "version": "1.6.8"
+    },
+    "doctrine/deprecations": {
+        "version": "v0.5.3"
+    },
+    "doctrine/event-manager": {
+        "version": "1.1.1"
+    },
     "doctrine/inflector": {
         "version": "2.0.4"
     },
@@ -11,14 +35,26 @@
     "doctrine/lexer": {
         "version": "1.2.1"
     },
+    "doctrine/mongodb-odm": {
+        "version": "2.3.0"
+    },
+    "doctrine/persistence": {
+        "version": "2.2.3"
+    },
     "egulias/email-validator": {
         "version": "3.1.2"
     },
     "friendsofphp/proxy-manager-lts": {
         "version": "v1.0.5"
     },
+    "jean85/pretty-package-versions": {
+        "version": "2.0.5"
+    },
     "laminas/laminas-code": {
         "version": "4.5.0"
+    },
+    "mongodb/mongodb": {
+        "version": "1.10.1"
     },
     "monolog/monolog": {
         "version": "2.3.5"
@@ -472,5 +508,8 @@
     },
     "webmozart/assert": {
         "version": "1.10.0"
+    },
+    "yjiotpukc/mongodb-odm-fluent": {
+        "version": "0.3.0"
     }
 }
