@@ -61,10 +61,10 @@
     },
     "autoload": {
         "psr-4": {
-            "App\\": "src/",
             "Game\\": "src/Game/",
             "Utils\\": "src/Utils/"
-        }
+        },
+        "classmap": ["src/Kernel.php"]
     },
     "autoload-dev": {
         "psr-4": {
