@@ -8,7 +8,7 @@ use Doctrine\ODM\MongoDB\Configuration;
 use Doctrine\ODM\MongoDB\DocumentManager;
 use MongoDB\Client;
 use yjiotpukc\MongoODMFluent\FluentDriver;
-use yjiotpukc\MongoODMFluent\MappingFinder\DirectoryMappingFinder;
+use yjiotpukc\MongoODMFluent\MappingFinder\NamespacePatternMappingFinder;
 
 class DocumentManagerFactory
 {
@@ -22,7 +22,11 @@ class DocumentManagerFactory
         $config->setPersistentCollectionDir("{$cacheDir}/doctrine/odm/mongodb/PersistentCollections");
         $config->setDefaultDB('questasy');
 
-        $mappingFinder = new DirectoryMappingFinder([__DIR__ . '/Game/Infrastructure/Mapping'], ['Game\\Infrastructure\\Mapping']);
+        $mappingFinder = new NamespacePatternMappingFinder(
+            '/^Game\\\\Infrastructure\\\\Mapping\\\\(.*)$/',
+            'Game\\\\Domain\\\\Entity\\\\$1',
+            'Game\\Infrastructure\\Mapping'
+        );
         $fluentDriver = new FluentDriver($mappingFinder);
         $config->setMetadataDriverImpl($fluentDriver);
 
