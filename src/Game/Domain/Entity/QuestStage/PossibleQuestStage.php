@@ -10,11 +10,13 @@ use LogicException;
 
 /**
  * @property-read int $countedPossibility
+ * @property-read string $questStageId
  */
-class PossibleQuestStage extends QuestStage
+class PossibleQuestStage
 {
-    protected Possibility $possibility;
+    protected string $questStageId;
     protected int $countedPossibility;
+    protected Possibility $possibility;
 
     public function countPossibility(GameStatus $gameStatus): void
     {
@@ -24,6 +26,7 @@ class PossibleQuestStage extends QuestStage
     public function __get(string $name)
     {
         return match ($name) {
+            'questStageId' => $this->questStageId,
             'countedPossibility' => $this->countedPossibility,
             default => throw new LogicException(static::class . ' does not have property ' . $name),
         };

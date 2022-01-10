@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Game\Domain\Entity;
 
+use Doctrine\Common\Collections\Collection;
 use Game\Domain\Entity\Condition\Condition;
 use Game\Domain\Entity\QuestAction\QuestAction;
 use Game\Domain\Entity\QuestStage\QuestStage;
@@ -13,18 +14,21 @@ use LogicException;
  * @property-read string $title
  * @property-read string $description
  * @property-read QuestStage $startingStage
+ * @property-read Collection<int, QuestStage> $stages
+ * @property-read Collection<int, QuestAction> $actions
  */
 class Quest
 {
+    protected string $id;
     protected string $title;
     protected string $description;
     protected QuestStage $startingStage;
-    /** @var QuestStage[] */
-    protected array $stages;
-    /** @var QuestAction[] */
-    protected array $actions;
-    /** @var Condition[] */
-    protected array $conditions;
+    /** @var Collection<int, QuestStage> */
+    protected Collection $stages;
+    /** @var Collection<int, QuestAction> */
+    protected Collection $actions;
+    /** @var Collection<int, Condition> */
+    protected Collection $conditions;
 
     public function start(): WalkthroughQuest
     {
@@ -48,6 +52,8 @@ class Quest
             'title' => $this->title,
             'description' => $this->description,
             'startingStage' => $this->startingStage,
+            'stages' => $this->stages,
+            'actions' => $this->actions,
             default => throw new LogicException(static::class . ' does not have property ' . $name),
         };
     }

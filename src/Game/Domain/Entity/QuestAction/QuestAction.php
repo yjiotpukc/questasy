@@ -5,11 +5,14 @@ declare(strict_types=1);
 namespace Game\Domain\Entity\QuestAction;
 
 use Game\Domain\Entity\GameStatus;
-use Game\Domain\Entity\QuestStage\QuestStage;
 
+/**
+ * @property-read string $id
+ * @property-read string $text
+ */
 interface QuestAction
 {
-    public function nextStage(GameStatus $gameStatus): QuestStage;
+    public function nextStage(GameStatus $gameStatus): string;
 
     public function canShow(GameStatus $gameStatus): bool;
 

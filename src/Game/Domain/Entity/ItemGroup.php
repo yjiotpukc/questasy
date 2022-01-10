@@ -6,7 +6,7 @@ namespace Game\Domain\Entity;
 
 class ItemGroup
 {
-    protected int $id;
+    protected string $id;
 
     public function is(ItemGroup $other): bool
     {

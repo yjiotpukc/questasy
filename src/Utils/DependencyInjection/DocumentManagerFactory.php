@@ -25,7 +25,7 @@ class DocumentManagerFactory
         $mappingFinder = new NamespacePatternMappingFinder(
             '/^Game\\\\Infrastructure\\\\Mapping\\\\(.*)$/',
             'Game\\\\Domain\\\\Entity\\\\$1',
-            'Game\\Infrastructure\\Mapping'
+            __DIR__ . '/../../Game/Infrastructure/Mapping'
         );
         $fluentDriver = new FluentDriver($mappingFinder);
         $config->setMetadataDriverImpl($fluentDriver);

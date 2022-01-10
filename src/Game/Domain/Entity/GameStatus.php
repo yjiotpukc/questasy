@@ -4,11 +4,13 @@ declare(strict_types=1);
 
 namespace Game\Domain\Entity;
 
+use Doctrine\Common\Collections\Collection;
+
 class GameStatus
 {
     protected int $money;
-    /** @var Item[] */
-    protected array $inventory;
+    /** @var Collection<int, Item> */
+    protected Collection $inventory;
     /** @var string[] */
     protected array $decisions;
 

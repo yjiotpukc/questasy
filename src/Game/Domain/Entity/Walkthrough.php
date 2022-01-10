@@ -4,26 +4,36 @@ declare(strict_types=1);
 
 namespace Game\Domain\Entity;
 
-use Game\Domain\Entity\QuestAction\QuestAction;
+use Doctrine\Common\Collections\Collection;
+use Exception;
+use Game\Domain\Exception\AvailableQuestNotFoundException;
 use LogicException;
 
 /**
  * @property-read ?WalkthroughQuest $currentQuest
- * @property-read WalkthroughQuest[] $questHistory
- * @property-read Quest[] $availableQuests
+ * @property-read Collection<int, WalkthroughQuest> $questHistory
+ * @property-read Collection<int, Quest> $availableQuests
  * @property-read GameStatus $gameStatus
  */
 class Walkthrough
 {
-    protected ?WalkthroughQuest $currentQuest;
-    /** @var WalkthroughQuest[] */
-    protected array $questHistory;
-    /** @var Quest[] */
-    protected array $availableQuests;
+    protected string $id;
+    protected ?WalkthroughQuest $currentQuest = null;
+    /** @var Collection<int, WalkthroughQuest> */
+    protected Collection $questHistory;
+    /** @var Collection<int, Quest> */
+    protected Collection $availableQuests;
     protected GameStatus $gameStatus;
 
+    /**
+     * @throws Exception
+     */
     public function startQuest(Quest $quest): void
     {
+        if (!$this->availableQuests->removeElement($quest)) {
+            throw new AvailableQuestNotFoundException();
+        }
+
         $this->currentQuest = $quest->start();
     }
 
@@ -33,17 +43,17 @@ class Walkthrough
         $this->currentQuest = null;
     }
 
-    public function progress(QuestAction $questAction): void
+    public function progress(string $questActionId): void
     {
-        $this->currentQuest->progress($questAction, $this->gameStatus);
+        $this->currentQuest->progress($questActionId, $this->gameStatus);
     }
 
     /**
-     * @param Quest[] $possibleQuests
+     * @param Collection<int, Quest> $possibleQuests
      */
-    public function updatePossibleQuests(array $possibleQuests): void
+    public function updatePossibleQuests(Collection $possibleQuests): void
     {
-        $this->availableQuests = array_filter($possibleQuests, fn($quest) => $quest->isAvailable($this->gameStatus));
+        $this->availableQuests = $possibleQuests->filter(fn($quest) => $quest->isAvailable($this->gameStatus));
     }
 
     public function __get(string $name)

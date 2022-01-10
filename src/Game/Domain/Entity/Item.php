@@ -6,7 +6,7 @@ namespace Game\Domain\Entity;
 
 class Item
 {
-    protected int $id;
+    protected string $id;
     protected string $name;
     /** @var ItemGroup[] */
     protected array $groups;

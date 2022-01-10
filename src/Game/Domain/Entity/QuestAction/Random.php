@@ -4,18 +4,18 @@ declare(strict_types=1);
 
 namespace Game\Domain\Entity\QuestAction;
 
+use Doctrine\Common\Collections\Collection;
 use Exception;
 use Game\Domain\Entity\GameStatus;
 use Game\Domain\Entity\QuestStage\PossibleQuestStage;
-use Game\Domain\Entity\QuestStage\QuestStage;
 use LogicException;
 
 class Random extends AbstractQuestAction
 {
-    /** @var PossibleQuestStage[] */
-    protected array $possibleStages;
+    /** @var Collection<int, PossibleQuestStage> */
+    protected Collection $possibleStages;
 
-    public function nextStage(GameStatus $gameStatus): QuestStage
+    public function nextStage(GameStatus $gameStatus): string
     {
         foreach ($this->possibleStages as $possibleStage) {
             $possibleStage->countPossibility($gameStatus);
@@ -37,17 +37,16 @@ class Random extends AbstractQuestAction
 
     private function sumPossibilities(): int
     {
-        return array_sum(array_map(
-            static fn(PossibleQuestStage $stage) => $stage->countedPossibility,
-            $this->possibleStages
-        ));
+        return array_sum($this->possibleStages->map(
+            static fn(PossibleQuestStage $stage) => $stage->countedPossibility
+        )->toArray());
     }
 
-    private function findStageWithPossibility(int $possibility): QuestStage
+    private function findStageWithPossibility(int $possibility): string
     {
         foreach ($this->possibleStages as $possibleStage) {
             if ($possibility <= $possibleStage->countedPossibility) {
-                return $possibleStage;
+                return $possibleStage->questStageId;
             }
 
             $possibility -= $possibleStage->countedPossibility;
