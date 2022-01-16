@@ -33,4 +33,9 @@ abstract class AbstractQuestAction implements QuestAction
             default => throw new LogicException(static::class . ' does not have property ' . $name),
         };
     }
+
+    public function __isset(string $name): bool
+    {
+        return in_array($name, ['id', 'text']);
+    }
 }

@@ -57,4 +57,9 @@ class Quest
             default => throw new LogicException(static::class . ' does not have property ' . $name),
         };
     }
+
+    public function __isset(string $name): bool
+    {
+        return in_array($name, ['title', 'description', 'startingStage', 'stages', 'actions']);
+    }
 }
