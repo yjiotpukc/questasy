@@ -1,0 +1,47 @@
+{% extends 'game/base.html.twig' %}
+
+{% block background %}
+    <img class="background-image" src="{{ asset('bkg2.jpg', 'images') }}" alt="Военная база">
+{% endblock %}
+
+{% block body %}
+    <a href="#" class="menu-button">Меню и персонаж</a>
+
+    <div class="hub">
+        <h2 class="hub__location">Южный лагерь армии Кракожицы</h2>
+        <p class="hub__datetime">День 3, утро</p>
+        <p class="hub__location-description">В лагере всё спокойно. Пара человек дымит в курилке, кто-то катит в гору
+            катушку кабеля. Взгляду зацепиться тут совершенно не за что.</p>
+        <p class="hub__location-description">Нужно решить, что делать дальше...</p>
+
+        <div class="hub__quests">
+            <form action="/quest">
+                <button class="quest-start">
+                    <span class="quest-start__header">Перекусить в столовой</span>
+                    <br><span class="quest-start__text">В столовой душно и воняет. Но без еды — ни туды ни сюды</span>
+                    <br><span class="quest-start__additional quest-start__additional--quest">! Странная шкатулка</span>
+                </button>
+                <button class="quest-start">
+                    <span class="quest-start__header">Пойти в тренажёрный зал</span>
+                    <br><span class="quest-start__text">Нужно потренироваться, чтобы держать тело в тонусе</span>
+                    <br><span class="quest-start__additional quest-start__additional--train">Тренировать силу</span>
+                </button>
+                <button class="quest-start">
+                    <span class="quest-start__header">Исследовать странную шкатулку</span>
+                    <br><span class="quest-start__text">Можно отойти в безлюдное место и проверить, что внутри</span>
+                    <br><span class="quest-start__additional quest-start__additional--quest">! Странная шкатулка</span>
+                </button>
+                <button class="quest-start">
+                    <span class="quest-start__header">Проведать Варёного</span>
+                    <br><span class="quest-start__text">Наверняка он уже пришёл в себя, стоит заглянуть в лазарет</span>
+                    <br><span class="quest-start__additional quest-start__additional--quest">! Горе-испытатель</span>
+                </button>
+                <button class="quest-start">
+                    <span class="quest-start__header">Зайти к замполка</span>
+                    <br><span class="quest-start__text">Шляпин уже наверняка заждался, нужно зайти к нему по поводу пропавших солдатских сапог</span>
+                    <br><span class="quest-start__additional quest-start__additional--quest">! По ту сторону</span>
+                </button>
+            </form>
+        </div>
+    </div>
+{% endblock %}

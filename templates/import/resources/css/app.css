@@ -1,0 +1,255 @@
+body {
+    margin: 0;
+    padding: 0;
+
+    font-family: Spectral, serif;
+    font-size: 16px;
+    line-height: 20px;
+    color: #E2E2E2;
+    opacity: 0.9;
+}
+
+.background-image__container {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    overflow: hidden;
+}
+
+.background-image {
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+
+.menu-button {
+    position: absolute;
+    display: block;
+    top: 16px;
+    left: 492px;
+    padding: 5px 11px 7px 8px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 2px;
+
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.menu-button--quest {
+    top: 16px;
+    left: 16px;
+}
+
+.menu-button:hover {
+    border-color: #FFFFFF;
+}
+
+.decisions {
+    position: absolute;
+    width: 1100px;
+    height: 400px;
+    bottom: 0;
+    left:0;
+    right:0;
+    box-sizing: border-box;
+    margin: auto;
+    padding: 24px 24px 24px 16px;
+
+    background: rgba(0, 0, 0, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(5px);
+}
+
+.decisions__story {
+    box-sizing: border-box;
+    float: left;
+    width: 62.5%;
+    min-height: 100%;
+
+    border-right: 2px solid rgba(255, 255, 255, 0.15);
+}
+
+.decisions__story p {
+    margin-top: 0;
+    padding-right: 32px;
+}
+
+.decisions__variants {
+    box-sizing: border-box;
+    float: right;
+    width: 37.5%;
+    padding-left: 16px;
+}
+
+.decision-variant {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 5px 11px 7px 7px;
+    margin-top: 0;
+
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 2px;
+    background-color: transparent;
+    text-align: left;
+    font-family: Spectral, serif;
+    color: #FFFFFF;
+    font-size: 16px;
+    line-height: 20px;
+}
+
+.decision-variant:hover {
+    cursor: pointer;
+    border-color: #FFFFFF;
+}
+
+.decisions__location {
+    box-sizing: border-box;
+    position: absolute;
+    top: -20px;
+    left: 8px;
+    height: 20px;
+    padding: 1px 17px 1px 7px;
+
+    background: rgba(0, 0, 0, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 2px;
+
+    font-size: 12px;
+    line-height: 18px;
+}
+
+.decisions__character {
+    display: flex;
+    align-items: center;
+
+    box-sizing: border-box;
+    position: absolute;
+    top: -44px;
+    min-width: 200px;
+    height: 44px;
+    padding: 6px;
+
+    background: rgba(0, 0, 0, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 2px;
+
+    color: #E2E2E2;
+    opacity: 0.9;
+    font-size: 12px;
+    line-height: 14px;
+    text-decoration: none;
+}
+
+.decisions-character__name {
+    margin-left: 4px;
+}
+
+.hub {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    box-sizing: border-box;
+    width: 480px;
+    top: 0;
+    bottom: 0;
+    left:0;
+    padding: 16px 24px 0 16px;
+
+    background: rgba(0, 0, 0, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(5px);
+}
+
+.hub__location {
+    margin: 0 0 8px;
+    font-size: 32px;
+    line-height: 34px;
+}
+
+.hub__datetime {
+    margin: 0 0 24px;
+    font-size: 12px;
+    line-height: 14px;
+}
+
+.hub__location-description {
+    margin: 0 0 8px;
+}
+
+.hub__quests {
+    flex: 1;
+    margin-top: 24px;
+
+    overflow-y: auto;
+}
+
+.quest-start {
+    display: block;
+    width: 100%;
+    padding: 5px 73px 7px 21px;
+
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 2px;
+    font-family: Spectral, serif;
+    color: #E2E2E2;
+    text-align: left;
+}
+
+.quest-start:hover {
+    cursor: pointer;
+    border-color: #FFFFFF;
+}
+
+.quest-start + .quest-start {
+    margin-top: 16px;
+}
+
+.quest-start__header {
+    display: inline-block;
+
+    margin-bottom: 2px;
+    font-size: 16px;
+    line-height: 20px;
+    opacity: 0.9;
+    font-weight: 600;
+}
+
+.quest-start__text {
+    display: inline-block;
+    margin-top: 2px;
+
+    font-size: 16px;
+    line-height: 20px;
+    opacity: 0.9;
+}
+
+.quest-start__additional {
+    display: inline-block;
+    margin-top: 8px;
+
+    font-size: 16px;
+    line-height: 20px;
+    opacity: 0.9;
+}
+
+.quest-start__additional--quest {
+    color: #EBAF17;
+}
+
+.quest-start__additional--train {
+    color: #4AD228;
+}
+
+@media screen and (min-width: 1366px) {
+    .menu-button::before {
+        content: "ESC";
+        padding: 6px 8px 6px 1px;
+        margin-left: -4px;
+
+        color: #6A6A6A;
+        font-family: Istok Web, sans-serif;
+        font-size: 14px;
+        line-height: 20px;
+    }
+}

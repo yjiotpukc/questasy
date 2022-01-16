@@ -1,0 +1,35 @@
+{% extends 'game/base.html.twig' %}
+
+{% block background %}
+    <img class="background-image" src="{{ asset('bkg.jpg', 'images') }}" alt="Заросшая улица">
+{% endblock %}
+
+{% block body %}
+    <a href="#" class="menu-button menu-button--quest">Меню и персонаж</a>
+
+    <div class="decisions">
+        <div class="decisions__story">
+            <p>Вы просыпаетесь в казарме. На часах пять утра. Кажется, никто из ваших сослуживцев ещё не проснулся — о
+                чудные минуты покоя и тишины.</p>
+            <p>На соседней койке сопит Картавый. Интересно, что ему снится? И снится ли вообще? В армии часто начинаешь
+                задумываться, что у людей в голове. Думают ли они вообще хоть о чём-то?</p>
+            <p>От философских мыслей вас отвлекает скрип половицы. Обернувшись на звук, вы видите ефрейтора Шапочкина,
+                который в
+                одном исподнем крадётся к выходу из казармы. Зрелище странное само по себе, но где-то глубоко внутри вы
+                чувствуете
+                что-то большее, чем удивление. Это выглядит не просто странно, а пугающе странно...</p>
+        </div>
+        <div class="decisions__variants">
+            <form method="POST">
+                <button class="decision-variant">Прислушаться к своим чувствам...</button>
+            </form>
+
+            <a class="decisions__character" href="#">
+                <img class="decisions-character__avatar" src="{{ asset('unknown-avatar.png', 'images') }}" alt="Аватар">
+                <span class="decisions-character__name">Неизвестный солдат</span>
+            </a>
+        </div>
+
+        <div class="decisions__location">Окрестности Колашовича, день 3, утро</div>
+    </div>
+{% endblock %}
