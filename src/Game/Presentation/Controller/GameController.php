@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Game\Presentation\Controller;
 
 use Doctrine\ODM\MongoDB\DocumentManager;
+use Game\Application\GameSeeder;
 use Game\Domain\Entity\Player;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -22,6 +23,6 @@ class GameController extends AbstractController
             $view = 'game/quest.html.twig';
         }
 
-        return $this->render($view, compact($walkthrough));
+        return $this->render($view, compact('walkthrough'));
     }
 }

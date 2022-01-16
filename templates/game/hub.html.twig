@@ -16,6 +16,13 @@
 
         <div class="hub__quests">
             <form action="/quest">
+                {% for quest in walkthrough.availableQuests %}
+                    <button class="quest-start">
+                        <span class="quest-start__header">{{ quest.title }}</span>
+                        <br><span class="quest-start__text">{{ quest.description }}</span>
+                        <br><span class="quest-start__additional quest-start__additional--quest">! Линейка</span>
+                    </button>
+                {% endfor %}
                 <button class="quest-start">
                     <span class="quest-start__header">Перекусить в столовой</span>
                     <br><span class="quest-start__text">В столовой душно и воняет. Но без еды — ни туды ни сюды</span>
