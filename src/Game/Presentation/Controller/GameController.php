@@ -25,4 +25,11 @@ class GameController extends AbstractController
 
         return $this->render($view, compact('walkthrough'));
     }
+
+    public function resetWalkthrough(GameSeeder $gameSeeder): Response
+    {
+        $gameSeeder->resetWalkthrough();
+
+        return $this->redirect('/game');
+    }
 }
