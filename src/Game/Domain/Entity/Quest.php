@@ -11,6 +11,7 @@ use Game\Domain\Entity\QuestStage\QuestStage;
 use LogicException;
 
 /**
+ * @property-read string $id
  * @property-read string $title
  * @property-read string $description
  * @property-read QuestStage $startingStage
@@ -49,6 +50,7 @@ class Quest
     public function __get(string $name)
     {
         return match ($name) {
+            'id' => $this->id,
             'title' => $this->title,
             'description' => $this->description,
             'startingStage' => $this->startingStage,
@@ -60,6 +62,6 @@ class Quest
 
     public function __isset(string $name)
     {
-        return in_array($name, ['title', 'description', 'startingStage', 'stages', 'actions']);
+        return in_array($name, ['id', 'title', 'description', 'startingStage', 'stages', 'actions']);
     }
 }

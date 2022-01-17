@@ -28,13 +28,18 @@ class Walkthrough
     /**
      * @throws Exception
      */
-    public function startQuest(Quest $quest): void
+    public function startQuest(string $questId): void
     {
-        if (!$this->availableQuests->removeElement($quest)) {
-            throw new AvailableQuestNotFoundException();
+        foreach ($this->availableQuests as $quest) {
+            if ($quest->id === $questId) {
+                $this->availableQuests->removeElement($quest);
+                $this->currentQuest = $quest->start();
+
+                return;
+            }
         }
 
-        $this->currentQuest = $quest->start();
+        throw new AvailableQuestNotFoundException();
     }
 
     public function finishQuest(): void

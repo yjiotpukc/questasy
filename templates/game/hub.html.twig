@@ -15,9 +15,9 @@
         <p class="hub__location-description">Нужно решить, что делать дальше...</p>
 
         <div class="hub__quests">
-            <form action="/quest">
+            <form action="/game/start-quest" method="POST">
                 {% for quest in walkthrough.availableQuests %}
-                    <button class="quest-start">
+                    <button class="quest-start" name="quest_id" value="{{ quest.id }}">
                         <span class="quest-start__header">{{ quest.title }}</span>
                         <br><span class="quest-start__text">{{ quest.description }}</span>
                         <br><span class="quest-start__additional quest-start__additional--quest">! Линейка</span>
