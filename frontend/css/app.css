@@ -241,6 +241,30 @@ body {
     color: #4AD228;
 }
 
+.tester-buttons {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+}
+
+.tester-buttons__button {
+    display: block;
+    padding: 5px 11px 7px 8px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 2px;
+
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.tester-buttons__button + .tester-buttons__button {
+    margin-top: 10px;
+}
+
+.tester-buttons__button:hover {
+    border-color: #FFFFFF;
+}
+
 @media screen and (min-width: 1366px) {
     .menu-button::before {
         content: "ESC";

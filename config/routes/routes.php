@@ -10,4 +10,5 @@ return static function (RoutingConfigurator $routing) {
     $routing->add('home', '/')->methods(['GET'])->controller([HomeController::class, 'home']);
     $routing->add('game', '/game')->methods(['GET'])->controller([GameController::class, 'questProgress']);
     $routing->add('resetWalkthrough', '/game/reset-walkthrough')->methods(['GET'])->controller([GameController::class, 'resetWalkthrough']);
+    $routing->add('resetShipQuest', '/game/reset-ship-quest')->methods(['GET'])->controller([GameController::class, 'resetShipQuest']);
 };

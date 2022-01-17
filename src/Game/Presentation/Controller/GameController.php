@@ -32,4 +32,11 @@ class GameController extends AbstractController
 
         return $this->redirect('/game');
     }
+
+    public function resetShipQuest(GameSeeder $gameSeeder): Response
+    {
+        $gameSeeder->upsertShipQuest();
+
+        return $this->redirect('/game');
+    }
 }

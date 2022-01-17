@@ -17,7 +17,7 @@ class Walkthrough extends EmbeddedDocumentMapping
         $builder->id();
         $builder->embedOne('currentQuest', WalkthroughQuest::class);
         $builder->embedMany('questHistory', WalkthroughQuest::class);
-        $builder->embedMany('availableQuests', Quest::class);
+        $builder->referenceMany('availableQuests', Quest::class);
         $builder->embedOne('gameStatus', GameStatus::class);
     }
 }
