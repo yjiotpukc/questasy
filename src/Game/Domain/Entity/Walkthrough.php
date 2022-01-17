@@ -67,7 +67,7 @@ class Walkthrough
         };
     }
 
-    public function __isset(string $name): bool
+    public function __isset(string $name)
     {
         return in_array($name, ['currentQuest', 'questHistory', 'availableQuests', 'gameStatus']);
     }

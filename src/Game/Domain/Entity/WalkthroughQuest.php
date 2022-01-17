@@ -55,7 +55,7 @@ class WalkthroughQuest
         };
     }
 
-    public function __isset(string $name): bool
+    public function __isset(string $name)
     {
         return in_array($name, ['title', 'description', 'stage', 'stageHistory', 'possibleActions']);
     }
