@@ -97,6 +97,10 @@ body {
     line-height: 20px;
 }
 
+.decision-variant + .decision-variant {
+    margin-top: 16px;
+}
+
 .decision-variant:hover {
     cursor: pointer;
     border-color: #FFFFFF;
