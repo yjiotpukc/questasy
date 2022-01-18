@@ -36,7 +36,19 @@ class GameController extends AbstractController
         $dm->persist($walkthrough);
         $dm->flush();
 
-        return $this->redirect('/game');
+        return $this->redirect('/game#last-stage');
+    }
+
+    public function progressQuest(DocumentManager $dm, Request $request): Response
+    {
+        $actionId = $request->get('action_id');
+        $player = $dm->find(Player::class, '61db07efdf36e1609145afd4');
+        $walkthrough = $player->currentWalkthrough;
+        $walkthrough->progress($actionId);
+        $dm->persist($walkthrough);
+        $dm->flush();
+
+        return $this->redirect('/game#last-stage');
     }
 
     public function resetWalkthrough(GameSeeder $gameSeeder): Response

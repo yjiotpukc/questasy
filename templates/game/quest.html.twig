@@ -12,11 +12,12 @@
             {% for stage in walkthrough.currentQuest.stageHistory %}
                 <p>{{ stage.text }}</p>
             {% endfor %}
+            <div id="last-stage"></div>
         </div>
         <div class="decisions__variants">
-            <form method="POST">
+            <form action="/game/progress-quest" method="POST">
                 {% for action in walkthrough.currentQuest.possibleActions %}
-                    <button class="decision-variant">{{ action.text }}</button>
+                    <button name="action_id" value="{{ action.id }}" class="decision-variant">{{ action.text }}</button>
                 {% endfor %}
             </form>
 
