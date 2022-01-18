@@ -10,6 +10,13 @@ use Game\Domain\Entity\QuestAction\QuestAction;
 use Game\Domain\Entity\QuestStage\QuestStage;
 use LogicException;
 
+/**
+ * @property-read string $title
+ * @property-read string $description
+ * @property-read QuestStage $stage
+ * @property-read Collection<int, QuestStage> $stageHistory
+ * @property-read Collection<int, QuestAction> $possibleActions
+ */
 class WalkthroughQuest
 {
     protected string $title;
