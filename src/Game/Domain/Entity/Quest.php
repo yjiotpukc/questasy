@@ -14,7 +14,7 @@ use LogicException;
  * @property-read string $id
  * @property-read string $title
  * @property-read string $description
- * @property-read QuestStage $startingStage
+ * @property-read string $startingStageId
  * @property-read Collection<int, QuestStage> $stages
  * @property-read Collection<int, QuestAction> $actions
  */
@@ -23,7 +23,7 @@ class Quest
     protected string $id;
     protected string $title;
     protected string $description;
-    protected QuestStage $startingStage;
+    protected string $startingStageId;
     /** @var Collection<int, QuestStage> */
     protected Collection $stages;
     /** @var Collection<int, QuestAction> */
@@ -53,7 +53,7 @@ class Quest
             'id' => $this->id,
             'title' => $this->title,
             'description' => $this->description,
-            'startingStage' => $this->startingStage,
+            'startingStageId' => $this->startingStageId,
             'stages' => $this->stages,
             'actions' => $this->actions,
             default => throw new LogicException(static::class . ' does not have property ' . $name),
@@ -62,6 +62,6 @@ class Quest
 
     public function __isset(string $name)
     {
-        return in_array($name, ['id', 'title', 'description', 'startingStage', 'stages', 'actions']);
+        return in_array($name, ['id', 'title', 'description', 'startingStageId', 'stages', 'actions']);
     }
 }

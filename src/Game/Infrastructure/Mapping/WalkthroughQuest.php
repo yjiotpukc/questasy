@@ -23,7 +23,7 @@ class WalkthroughQuest extends EmbeddedDocumentMapping
             ->map('determined', Determined::class)
             ->map('random', Random::class)
             ->map('branching', Branching::class);
-        $builder->embedOne('stage', QuestStage::class);
+        $builder->string('currentStageId');
         $builder->embedMany('stageHistory', QuestStage::class);
     }
 }

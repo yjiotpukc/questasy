@@ -20,7 +20,7 @@ class Quest extends DocumentMapping
         $builder->id();
         $builder->string('title');
         $builder->string('description');
-        $builder->embedOne('startingStage', QuestStage::class);
+        $builder->string('startingStageId');
         $builder->embedMany('stages', QuestStage::class);
         $builder->embedMany('actions')
             ->discriminator('type')

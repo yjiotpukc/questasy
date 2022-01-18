@@ -26,7 +26,7 @@ class WalkthroughQuest
     /** @var Collection<int, QuestAction> */
     protected Collection $actions;
 
-    protected QuestStage $stage;
+    protected string $currentStageId;
     /** @var Collection<int, QuestStage> */
     protected Collection $stageHistory;
 
@@ -37,17 +37,18 @@ class WalkthroughQuest
         $this->stages = $quest->stages;
         $this->actions = $quest->actions;
 
-        $this->stage = $quest->startingStage;
+        $this->currentStageId = $quest->startingStageId;
         $this->stageHistory = new ArrayCollection([$this->stage]);
     }
 
     public function progress(string $questActionId, GameStatus $gameStatus): void
     {
         $questAction = $this->actions->filter(fn (QuestAction $action) => $action->id === $questActionId)->first();
-        $nextStageId = $questAction->nextStage($gameStatus);
-        $this->stage = $this->stages->filter(static fn (QuestStage $stage) => $stage->id === $nextStageId)->first();
-        $this->stageHistory[] = $this->stage;
-        $this->stage->receiveEffects($gameStatus);
+        $this->currentStageId = $questAction->nextStage($gameStatus);
+
+        $currentStage = $this->stages->filter(fn (QuestStage $stage) => $stage->id === $this->currentStageId)->first();
+        $this->stageHistory[] = $currentStage;
+        $currentStage->receiveEffects($gameStatus);
     }
 
     public function __get(string $name)
@@ -55,7 +56,7 @@ class WalkthroughQuest
         return match ($name) {
             'title' => $this->title,
             'description' => $this->description,
-            'stage' => $this->stage,
+            'stage' => $this->stages->filter(fn (QuestStage $stage) => $stage->id === $this->currentStageId)->first(),
             'stageHistory' => $this->stageHistory,
             'possibleActions' => $this->actions->filter(fn (QuestAction $action) => in_array($action->id, $this->stage->actions, true)),
             default => throw new LogicException(static::class . ' does not have property ' . $name),
