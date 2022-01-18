@@ -11,6 +11,6 @@ class Determined extends AbstractQuestAction
     public function map(EmbeddedDocument $builder): void
     {
         parent::map($builder);
-        $builder->int('questStageId');
+        $builder->string('questStageId');
     }
 }
