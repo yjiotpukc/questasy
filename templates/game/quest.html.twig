@@ -15,11 +15,17 @@
             <div id="last-stage"></div>
         </div>
         <div class="decisions__variants">
-            <form action="/game/progress-quest" method="POST">
-                {% for action in walkthrough.currentQuest.possibleActions %}
-                    <button name="action_id" value="{{ action.id }}" class="decision-variant">{{ action.text }}</button>
-                {% endfor %}
-            </form>
+            {% if walkthrough.currentQuest.possibleActions is empty %}
+                <form action="/game/finish-quest" method="POST">
+                    <button class="decision-variant">Завершить</button>
+                </form>
+            {% else %}
+                <form action="/game/progress-quest" method="POST">
+                    {% for action in walkthrough.currentQuest.possibleActions %}
+                        <button name="action_id" value="{{ action.id }}" class="decision-variant">{{ action.text }}</button>
+                    {% endfor %}
+                </form>
+            {% endif %}
 
             <a class="decisions__character" href="#">
                 <img class="decisions-character__avatar" src="{{ asset('unknown-avatar.png', 'images') }}" alt="Аватар">

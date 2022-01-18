@@ -11,6 +11,7 @@ return static function (RoutingConfigurator $routing) {
     $routing->add('game', '/game')->methods(['GET'])->controller([GameController::class, 'questProgress']);
     $routing->add('startQuest', '/game/start-quest')->methods(['POST'])->controller([GameController::class, 'startQuest']);
     $routing->add('progressQuest', '/game/progress-quest')->methods(['POST'])->controller([GameController::class, 'progressQuest']);
+    $routing->add('finishQuest', '/game/finish-quest')->methods(['POST'])->controller([GameController::class, 'finishQuest']);
     $routing->add('resetWalkthrough', '/game/reset-walkthrough')->methods(['GET'])->controller([GameController::class, 'resetWalkthrough']);
     $routing->add('resetShipQuest', '/game/reset-ship-quest')->methods(['GET'])->controller([GameController::class, 'resetShipQuest']);
 };
